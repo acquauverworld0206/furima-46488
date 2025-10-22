@@ -32,27 +32,26 @@
 | `prefecture_id`           | `integer`       | 発送元の地域ID           | `null: false`                            |
 | `shipping_day_id`         | `integer`       | 発送までの日数ID         | `null: false`                            |
 | `price`                   | `integer`       | 価格                     | `null: false`                            |
-| `user`                 | `bigint`        | ユーザーのID（外部キー） | `null: false`, `foreign_key: true`       |
-| `image`                   | `ActiveStorage` | 商品画像                 | `null: false`（モデル側でバリデーション）|
+| `user`                 | `references`        | ユーザーのID（外部キー） | `null: false`, `foreign_key: true`       |
 
 ### Associations
 
-`belongs_to :users`
-`has_one :orders`
-`has_one_attached :images`
+`belongs_to :user`
+`has_one :order`
+`has_one_attached :image`
 
 ### `orders` テーブル
 
 | カラム名  | データ型 | 概要                     | オプション                               |
 | --------- | -------- | ------------------------ | ---------------------------------------- |
 | `id`      | `bigint` | 主キー                   | `null: false`, `auto_increment`          |
-| `user` | `bigint` | ユーザーのID（外部キー） | `null: false`, `foreign_key: true`       |
-| `item` | `bigint` | 商品のID（外部キー）     | `null: false`, `foreign_key: true`       |
+| `user` | `references` | ユーザーのID（外部キー） | `null: false`, `foreign_key: true`       |
+| `item` | `references` | 商品のID（外部キー）     | `null: false`, `foreign_key: true`       |
 
 ### Associations
 
-`belongs_to :users`
-`belongs_to :items`
+`belongs_to :user`
+`belongs_to :item`
 `has_one : shipping_address`
 
 ### `shipping_addresses` テーブル
@@ -66,8 +65,8 @@
 | `street_address`   | `string` | 番地                   | `null: false`                            |
 | `building_name`    | `string` | 建物名                 |                                          |
 | `phone_number`     | `string` | 電話番号               | `null: false`                            |
-| `order`         | `bigint` | 購入記録のID（外部キー） | `null: false`, `foreign_key: true`       |
+| `order`         | `references` | 購入記録のID（外部キー） | `null: false`, `foreign_key: true`       |
 
 ### Associations
 
-`belongs_to : orders`
+`belongs_to : order`
