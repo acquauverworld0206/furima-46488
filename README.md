@@ -4,7 +4,6 @@
 
 | カラム名             | データ型 | 概要                   | オプション                  |
 | -------------------- | -------- | ---------------------- | --------------------------- |
-| `id`                 | `bigint` | 主キー                 | `null: false`, `auto_increment` |
 | `nickname`           | `string` | ニックネーム           | `null: false`               |
 | `email`              | `string` | メールアドレス         | `null: false`, `unique: true` |
 | `encrypted_password` | `string` | 暗号化されたパスワード | `null: false`               |
@@ -23,7 +22,6 @@
 
 | カラム名                  | データ型        | 概要                     | オプション                               |
 | ------------------------- | --------------- | ------------------------ | ---------------------------------------- |
-| `id`                      | `bigint`        | 主キー                   | `null: false`, `auto_increment`          |
 | `name`                    | `string`        | 商品名                   | `null: false`                            |
 | `description`             | `text`          | 商品の説明               | `null: false`                            |
 | `category_id`             | `integer`       | カテゴリーID             | `null: false`                            |
@@ -44,7 +42,6 @@
 
 | カラム名  | データ型 | 概要                     | オプション                               |
 | --------- | -------- | ------------------------ | ---------------------------------------- |
-| `id`      | `bigint` | 主キー                   | `null: false`, `auto_increment`          |
 | `user` | `references` | ユーザーのID（外部キー） | `null: false`, `foreign_key: true`       |
 | `item` | `references` | 商品のID（外部キー）     | `null: false`, `foreign_key: true`       |
 
@@ -58,7 +55,6 @@
 
 | カラム名           | データ型 | 概要                   | オプション                               |
 | ------------------ | -------- | ---------------------- | ---------------------------------------- |
-| `id`               | `bigint` | 主キー                 | `null: false`, `auto_increment`          |
 | `postal_code`      | `string` | 郵便番号               | `null: false`                            |
 | `prefecture_id`    | `integer`| 都道府県ID             | `null: false`                            |
 | `city`             | `string` | 市区町村               | `null: false`                            |
