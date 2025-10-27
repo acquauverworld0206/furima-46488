@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+/* Deviseのエラーメッセージを赤文字にする */
+#error_explanation {
+  color: red;
+}
+
+#error_explanation ul {
+  list-style: none; /* 先頭の点を削除 */
+  padding: 0;
+}
