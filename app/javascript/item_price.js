@@ -1,5 +1,5 @@
-// turbo:loadイベントは、初回読み込みとページ遷移の両方で発火します
-document.addEventListener("turbo:load", () => {
+// 価格計算の処理を関数として定義
+const calculatePrice = () => {
   // 価格入力欄の要素を取得
   const priceInput = document.getElementById("item-price");
 
@@ -19,4 +19,8 @@ document.addEventListener("turbo:load", () => {
     const profit = inputValue - commission;
     profitDom.innerHTML = profit;
   });
-});
+};
+
+// turbo:load と turbo:render の両方のイベントで関数を実行
+document.addEventListener("turbo:load", calculatePrice);
+document.addEventListener("turbo:render", calculatePrice);
