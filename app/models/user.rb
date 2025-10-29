@@ -10,8 +10,6 @@ class User < ApplicationRecord
   # パスワードは半角英数字混合
   # Deviseのデフォルトバリデーション（必須、6文字以上、確認との一致）はそのまま利用
   validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: 'は半角英数字混合で入力してください' }, allow_blank: true
-  # パスワードは半角のみ
-  validates :password, format: { with: /\A[ -~]+\z/, message: 'は半角で入力してください' }, allow_blank: true
 
   # 新規登録/本人情報確認 のバリデーション
   # お名前(全角)
