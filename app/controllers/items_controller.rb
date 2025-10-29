@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
   def index
-    # ここに商品一覧を取得するロジックを記述します（例: @items = Item.all）
+    @items = Item.order('created_at DESC')
   end
 
   def new
@@ -16,6 +16,10 @@ class ItemsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+
+  # def show
+  # @item = Item.find(params[:id])
+  # end
 
   private
 
