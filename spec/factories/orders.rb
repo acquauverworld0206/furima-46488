@@ -1,4 +1,6 @@
-class Order < ApplicationRecord
-  belongs_to :user
-  belongs_to :item
+FactoryBot.define do
+  factory :order do
+    association :user
+    association :item
+  end
 end
