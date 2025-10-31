@@ -53,3 +53,6 @@ production:
   database: furima_46488_production
   username: furima_46488
   password: <%= ENV["FURIMA_46488_DATABASE_PASSWORD"] %>
+  <<: *default # adapter: mysql2 を継承しないように注意
+  adapter: postgresql
+  url: <%= ENV["DATABASE_URL"] %>
