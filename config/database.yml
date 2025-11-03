@@ -49,6 +49,9 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default # adapter: mysql2 を継承しないように注意
-  adapter: postgresql
-  url: <%= ENV["DATABASE_URL"] %>
+  <<: *default
+  adapter: mysql2
+  database: furima_46488_production
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
